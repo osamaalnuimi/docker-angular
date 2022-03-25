@@ -1,0 +1,8 @@
+sudo: required
+
+services:
+  - docker
+before_install:
+  - docker build -t osamaalnuimi/docker-angular -f Dockerfile.dev ./
+script:
+  - docker run osamaalnuimi/docker-angular npm run test --no-watch --code-coverage
